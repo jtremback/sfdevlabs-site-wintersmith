@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  .main.col-12-12.center.no-gutter
+    .col-12-12
+      .col-2-12.t_col-3-12.p_col-12-12.b-gutter
+        a(href="/index.html").logo
+          .img
+            img(src="/images/logo_min1000.png")
+
+      .col-10-12.t_col-9-12.p_col-12-12.b-gutter
+        h1.no-t-marg Projects
+
+    include nav
+
+    .port-listing
+      - var projects = _.chain(contents.projects._.directories).map(function(item) {
+      -   return item.index;
+      - }).compact().sortBy(function(item) {
+      -   return -item.date;
+      - }).value();
+
+      each project in projects
+        a.b-gutter(href=project.url, title=project.title)
+          ._title.text-center
+            h2.p_hide._inner #{ project.title }
+            h4.p_show._inner #{ project.title }
+          img(src='images/#{ project.url }_banner.png')

@@ -1,0 +1,632 @@
+@import "objectgrid"
+@import "orbit"
+
+serif-font = "Merriweather", serif 
+sans-font = "Open Sans", sans-serif
+
+bottomborder = .08em solid #333
+
+
+offwhite = #fefefe
+offblack = #333
+lightgray = #ccc
+brand = #358FFF
+
+std-border = 1px solid lightgray
+
+offwhite-grad()
+	background-color #efefef
+	background-image linear-gradient(0deg, #fff, #efefef) 
+
+darkbg()
+	background black
+	background-image linear-gradient(45deg, #004, #000)
+
+lighterbg()
+	background offblack
+	background-image linear-gradient(45deg, brand, #004 60%, #000)
+
+.darkbg
+	background black
+	darkbg()
+
+absexpand()
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+
+//RESET
+*
+	box-sizing: border-box
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, outsput, ruby, section, summary, time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	font-size: 100%
+	font: inherit
+	vertical-align: baseline
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+	display: block
+
+//PAGE
+body
+	font-family sans-font
+	text-rendering: optimizeLegibility
+	font-size: 18px
+	word-spacing: .15em
+	line-height: 1.5
+	color: offblack
+	background-image url('/images/tileflower_3.png')
+
+p, pre
+	margin-bottom .75em
+
+ol, ul
+	margin-left: 1em
+
+li 
+	margin-bottom: 0.5em
+	margin-top: 0.5em
+
+blockquote, q
+	quotes: none
+
+blockquote
+	// border-left 5px solid offblack
+	padding-left .75em
+	position relative
+	font-style italic
+	font-size 1.1em
+	&:before
+		content ''
+		position absolute
+		lighterbg()
+		top .3em
+		left 0
+		bottom .3em
+		width .25em
+	&:after
+		content: ''
+		content: none
+
+// blockquote
+// 	font-style italic
+// 	position relative
+// 	&:before, &:after 
+// 		font-size 2em
+// 		position absolute
+// 	&:before
+// 		content '\201C'
+// 		top: -0.2em;
+// 		left: -0.15em;
+
+// 	&:after
+// 		content '\201C'
+
+q
+	&:before, &:after
+		content: ''
+		content: none
+
+// code, pre
+// 	background-color: #f4f4f4
+// 	font-family: Menlo, 'Panic Sans', monospace
+// 	font-size: 0.875em
+// 	white-space pre-wrap
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+strong
+	font-weight: 700
+
+hr
+	margin gutter 0
+	height: 1px
+	border: none
+	background: lightgray
+
+h1, h2, h3, h4, h5, h6
+	font-family sans-font
+	font-style italic
+	line-height .9em
+	margin-top .5em
+	margin-bottom: .5em
+
+
+
+h1
+	font-size: 3em
+
+h2
+	font-size: 2em
+
+h3
+	font-size: 1.5em
+
+h4
+	font-size: 1.25em
+
+h5, h6
+	font-size: 1em
+
+a
+	color: brand
+	text-decoration: none 
+	cursor pointer
+	&:visited
+		color: darken(brand, 30%)
+		text-decoration: none 
+	&:hover, &:active
+		color: darken(brand, 30%)
+		text-decoration underline 
+
+
+a.no-link-style
+	color inherit !important
+	text-decoration inherit !important
+
+
+img
+	width: 100%
+
+.pull-right
+	float right
+
+.text-center
+	text-align center
+
+.text-left
+	text-align left
+
+.text-right
+	text-align right
+
+.white-bg
+	background white
+
+.offwhite-bg
+	background offwhite
+
+.large-text
+	font-size 1.5em
+
+.no-marg 
+	margin 0
+
+.no-t-marg
+	margin-top 0
+
+.semi-transp
+	opacity .85
+
+.gutter-space
+	height gutter
+
+.darktext
+	darkbg()
+	color white
+	padding .5em .5em
+	display inline-block
+	span
+		line-height 1em
+
+	// @media under-tablet
+	// 	background offblack
+	// 	box-shadow -20px 0 0 offblack
+	// 	box-shadow 20px 0 0 offblack
+
+//MAIN CONTAINER
+.main
+	margin-top gutter * 2
+	margin-bottom @margin-top
+	padding-top gutter
+	padding-bottom @padding-top
+	border std-border
+	background offwhite
+	box-sizing content-box
+
+#bgfx
+	offwhite-grad()
+	position: fixed
+	z-index -1
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	.el
+		width: 100%
+		position: absolute
+		height: 100%
+
+input, textarea
+	font-family inherit
+	line-height 1.5
+	padding .2em .4em
+	font-size inherit
+	width 100%
+	border std-border
+	margin-top 0
+	margin-bottom gutter * .5
+	background white
+	max-width auto
+	&:focus
+		outline none
+		box-shadow inset 0 1px 2px lightgray
+		border-color brand
+
+form 
+	._wrong
+		border-color red
+	._honey
+		width 0
+		height 0
+		font-size .01px
+		margin 0
+		border none
+		padding 0
+		position absolute
+		z-index -20
+
+.button, button
+	margin 0
+	text-decoration none
+	// display inline-block
+	cursor pointer
+	text-align center
+	border none
+	font-family inherit
+	line-height 1.5
+	font-size 1em
+	padding .5em 1em
+	overflow hidden
+	color white
+	z-index 1
+	position relative
+	&:before
+		content ''
+		absexpand()
+		darkbg()
+		z-index -1
+	&:after
+		transition all 0.8s
+		content ''
+		absexpand()
+		lighterbg()
+		z-index -1
+		opacity .1
+	&:hover
+		&:after
+			opacity 1
+
+.button.large
+	font-size 1.3em
+
+.skillrow
+	font-size 1.2em
+	// box-shadow 0 -10px 25px -10px rgba(black, .1), 0 10px 25px -10px rgba(black, .1)
+
+
+
+///SLIDESHOW
+#slideshow
+	user-select: none
+	margin-top gutter
+	display inline-block
+	position relative
+	width 100%
+	font-size .01px
+	// border-bottom std-border
+
+.slide
+	overflow hidden
+	opacity 0
+	transition all .6s ease
+	absexpand()
+	img 
+		width 100%
+	&.active
+		opacity 1
+
+.slide-left, .slide-right
+	cursor pointer
+	width 0
+	height 0
+	// background black
+	position absolute
+	border inset gutter * .75
+
+.slide-left
+	top 50%
+	left gutter * -2
+	border-right-style solid
+	border-color transparent
+	border-right-color offblack
+	&:hover
+		border-right-color black
+
+.slide-right
+	top 50%
+	right gutter * -2
+	border-color transparent
+	border-left-style solid
+	border-left-color offblack
+	&:hover
+		border-left-color black
+
+.counterbox
+	position absolute 
+	top gutter * -1
+	right gutter * .5
+	text-align center
+	z-index 3
+
+.counter
+	display inline-block
+	border 1px solid offblack
+	border-radius 100px
+	height 20px
+	width 20px
+	margin 2.5px
+	background white
+	cursor pointer
+	transition all .6s ease
+
+.counter:hover
+	border-width 2px
+	// box-shadow inset 1px 1px 6px rgba(0, 0, 0, .3)
+
+.counter.active
+	background offblack
+	// box-shadow inset 1px 1px 6px rgba(0, 0, 0, .3)
+
+
+
+.tag
+	float left
+	white-space pre-line
+	background offblack
+	color white
+	padding .1em .5em
+	margin .2em
+
+ul.nolist
+	list-style-type none
+	padding 0
+	margin 0
+	li 
+		margin 0
+
+// .navbar
+// 	text-align center
+// 	font-size 1.5em
+// 	._item
+// 		border-left std-border
+// 		padding-left gutter
+// 		padding-right gutter
+// 		&:first-child
+// 			border-left none
+// 	&.-affixed
+// 		position fixed
+// 		top 0
+// 		z-index 1
+// 		width 100%
+
+
+.navbar
+	padding-top gutter * .5
+	padding-bottom @padding-top
+	border-top std-border
+	border-bottom @border-top
+	// display inline-block
+	text-align center
+	font-size 1em
+	background inherit
+	z-index 5
+	position relative
+	._item
+		border-left std-border
+		padding-left 1em
+		padding-right 1em
+		&:first-child
+			border-left none
+			padding-left 0
+	&.-affixed
+		border-top none
+		position fixed
+		top 0
+		z-index 1
+		// width 97%
+
+.logo
+	darkbg()
+	position relative
+	padding-top 100%
+	display block
+	.img 
+		position absolute
+		top 15%
+		bottom @top
+		left @top
+		right @top
+
+	&:before
+		content ''
+		background offwhite
+		position absolute
+		top 5%
+		bottom @top
+		left @top
+		right @top
+
+.title
+	line-height .9
+	font-size 4.5em
+	margin-bottom gutter
+
+.polaroid
+	color: #333
+	position relative
+	margin-bottom gutter * 2
+	._title
+		color white
+		background offblack
+		margin-bottom 0
+		line-height .9
+		padding gutter * .5
+		position absolute
+		bottom gutter * 2
+
+.content
+	padding-top gutter * 2
+
+.fakebody
+	background offblack
+	font-family sans-font
+	color white
+
+.headshot
+	@media under-tablet
+		font-size .9em
+
+//BLOG LISTING
+.blog-listing
+	._story
+		margin-bottom gutter * 2
+		._title
+			margin-top 0
+		._details
+			font-weight bold
+			font-size 1em
+			// padding-top .65ems
+			margin-bottom 1.2em
+
+
+
+//IMAGE ZOOM AND PAN
+.zoom
+	position: relative
+	overflow: hidden
+	.toggle
+		position: absolute
+		left: 0
+		top: 0
+		padding: .5em
+		background: white
+		i 
+			cursor: pointer
+			display: block
+			font-size: 3em
+		.z_out
+			display: none
+	&.zoomed
+		img
+			display: block
+			cursor: move 
+			width: auto !important
+			top: 0
+		.z_in
+			display: none
+		.z_out
+			display: block
+
+
+.largea
+	height 10000px
+
+
+//MODAL WINDOW
+.md-modal
+	absexpand()
+	position fixed
+	padding-top 10%
+	z-index 2000
+	visibility hidden
+	backface-visibility hidden
+	// transform translateX(-50%) translateY(-50%)
+
+.md-content
+	max-width 500px
+	margin-left auto
+	margin-right auto
+	& > *
+		clearfix()
+		background offwhite
+		padding gutter * .5
+		margin-left gutter * .5
+		margin-right gutter * .5
+		border std-border
+
+.md-show
+	visibility visible
+	& ~ .md-overlay
+		opacity 1
+		visibility visible
+
+.md-overlay
+	position fixed
+	width 100%
+	height 100%
+	visibility hidden
+	top 0
+	left 0
+	z-index 1000
+	opacity 0
+	background rgba(offwhite, .9)
+	transition all 0.5s
+
+.md-effect-15
+	&.md-modal
+		-webkit-perspective 1300px
+		-moz-perspective 1300px
+		perspective 1300px
+	.md-content
+		-webkit-transform-style preserve-3d
+		-moz-transform-style preserve-3d
+		transform-style preserve-3d
+		-webkit-transform translateZ(100px) translateX(-30%) rotateY(90deg)
+		-moz-transform translateZ(100px) translateX(-30%) rotateY(90deg)
+		-ms-transform translateZ(100px) translateX(-30%) rotateY(90deg)
+		transform translateZ(100px) translateX(-30%) rotateY(90deg)
+		-webkit-transform-origin 0 100%
+		-moz-transform-origin 0 100%
+		transform-origin 0 100%
+		opacity 0
+		-webkit-transition all 0.2s
+		-moz-transition all 0.2s
+		transition all 0.2s
+
+.md-show
+	&.md-effect-15
+		.md-content
+			-webkit-transform translateZ(0px) translateX(0%) rotateY(0deg)
+			-moz-transform translateZ(0px) translateX(0%) rotateY(0deg)
+			-ms-transform translateZ(0px) translateX(0%) rotateY(0deg)
+			transform translateZ(0px) translateX(0%) rotateY(0deg)
+			opacity 1
+
+
+//PORTFOLIO LISTING
+.port-listing
+	z-index 1
+	a 
+		display block
+		position relative
+		color offblack
+		img 
+			display block
+		._title
+			position absolute
+			top 0
+			._inner
+				// display inline-block
+				padding .25em .5em
+				background rgba(white, .9)
+	hr:last-child
+		display none
+

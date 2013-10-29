@@ -1,0 +1,76 @@
+extends layout
+
+block content
+  .main.col-12-12.center.no-gutter
+    .col-12-12
+      .col-4-12.b-gutter.p_col-12-12
+        .logo
+          .img
+            img(src="/images/logo_min1000.png")
+
+      .col-8-12.p_col-12-12
+        h1.no-t-marg We make web apps.
+
+      .col-8-12.b-gutter.t_col-12-12
+        .large-text SF Dev Labs is a full-service node.js shop (design + code) that specializes in mobile-optimized web apps and content publishing.
+
+        .t-gutter
+          .button.large.pull-right(data-modal-id="modal-1") Get Started
+
+
+    //- != partial('navbar')
+
+
+    .col-12-12.skillrow.t-gutter.dbl-gutter.text-center
+      .tag HTML/CSS
+      .tag UI/UX Design
+      .tag Javascript
+      .tag Node.js 
+      .tag Express
+      .tag Backbone
+      .tag Responsive Design
+      .tag jQuery
+      .tag API's
+
+    hr.col-12-12
+
+    //- padding-top set aspect ratio
+    #slideshow(style="padding-top: 63%;")
+      //- .counterbox
+      //-   each page in getCollection('portfolio').toJSON()
+      //-     .counter
+      //- each page in getCollection('portfolio').toJSON()
+      //-   a.slide(href="/portfolio.html")
+      //-     img(src='/images/#{ page.slug }_slide2.png')
+      
+      .slide-left
+      .slide-right
+
+    .gutter-space.p_hide
+
+    .col-12-12.p_hide
+      .profile.col-4-12
+        .headshot
+          img(src="images/jeff_headshot_crop.jpg")
+          a.name(href="http://jenkinsj.com/resume.html") Jeff Jenkins
+
+      .profile.col-4-12
+        .headshot
+          img(src="images/eoin_headshot_crop.jpg")
+          a.name(href="http://eoin.site44.com/") Eoin McMillan
+
+      .profile.col-4-12
+        .headshot
+          img(src="images/jehan_headshot_crop.jpg")
+          a.name(href="http://jehantremback.com/") Jehan Tremback
+
+    hr.col-12-12
+
+    .col-12-12
+      .col-6-12.t_col-12-12
+        //- != partial('contact.html.jade')
+      .col-6-12.t_hide
+        img.semi-transp(src='images/responsive.png')
+        div.text-center We love all devices!
+
+    //- .largea

@@ -1,0 +1,21 @@
+extends layout
+
+block title
+  title roka. / Page not found
+  meta(property='og:title', content='roka. / Page not found')
+
+block content
+  article.content.error
+    
+    header
+      h2 Page not found.
+    
+    section
+      p#fourofour 4o4
+      p The page could not be found. I'm sorry. 
+      p
+        | But that's no problem! Just go to the 
+        a(href='/') start page
+        |  and try it again!
+    
+  .clear

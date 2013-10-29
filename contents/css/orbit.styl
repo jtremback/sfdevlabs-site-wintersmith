@@ -1,0 +1,186 @@
+.slideshow-wrapper
+	position relative
+	ul
+		list-style-type none
+		margin 0
+		li
+			&:first-child
+				display block
+	.orbit-container
+		background-color transparent
+		li
+			display block
+			.orbit-caption
+				display block
+
+.slideshow-wrapper ul li, .slideshow-wrapper ul li .orbit-caption
+	display none
+
+.preloader
+	display block
+	width 40px
+	height 40px
+	position absolute
+	top 50%
+	left 50%
+	margin-top -20px
+	margin-left -20px
+	border solid 3px
+	border-color #555555 white
+	-webkit-border-radius 1000px
+	border-radius 1000px
+	-webkit-animation-name rotate
+	-webkit-animation-duration 1.5s
+	-webkit-animation-iteration-count infinite
+	-webkit-animation-timing-function linear
+	-moz-animation-name rotate
+	-moz-animation-duration 1.5s
+	-moz-animation-iteration-count infinite
+	-moz-animation-timing-function linear
+	-o-animation-name rotate
+	-o-animation-duration 1.5s
+	-o-animation-iteration-count infinite
+	-o-animation-timing-function linear
+	animation-name rotate
+	animation-duration 1.5s
+	animation-iteration-count infinite
+	animation-timing-function linear
+
+.orbit-container
+	overflow hidden
+	width 100%
+	position relative
+	.orbit-slides-container
+		list-style none
+		margin 0
+		padding 0
+		position relative
+		img
+			display block
+		& > *
+			position relative
+			float left
+			height auto
+		li 
+			margin 0
+			padding 0
+
+	.orbit-slide-number
+		position absolute
+		top 10px
+		left 10px
+		font-size 12px
+		color white
+		background rgba(0, 0, 0, 0)
+		span
+			font-weight 700
+			padding 0.3125em
+	.orbit-timer
+		display none
+		position absolute
+		top 10px
+		right 10px
+		height 6px
+		width 100px
+		.orbit-progress
+			height 100%
+			background-color black
+			background-color rgba(0, 0, 0, 0.6)
+			display block
+			width 0%
+		& > span
+			display none
+			position absolute
+			top 10px
+			right 0px
+			width 11px
+			height 14px
+			border solid 4px black
+			border-top none
+			border-bottom none
+		&.paused
+			& > span
+				right -6px
+				top 9px
+				width 11px
+				height 14px
+				border inset 8px
+				border-right-style solid
+				border-color transparent transparent transparent black
+	&:hover
+		.orbit-timer
+			& > span
+				display block
+
+.orbit-container
+	.orbit-prev, .orbit-next
+		position absolute
+		top 50%
+		margin-top gutter
+		background-color black
+		background-color rgba(0, 0, 0, 0.6)
+		width gutter
+		height gutter
+		line-height 50px
+		color white
+		text-indent -9999px !important
+		span
+			position absolute
+			top 50%
+			margin-top -16px
+			display block
+			width 0
+			height 0
+			border inset 16px
+
+	.orbit-prev
+		left 0
+		& > span
+			border-right-style solid
+			border-color transparent
+			border-right-color #fff
+		&:hover
+			& > span
+				border-right-color #ccc
+	.orbit-next
+		right 0
+		& > span
+			border-color transparent
+			border-left-style solid
+			border-left-color #fff
+			left 50%
+			margin-left -8px
+		&:hover
+			& > span
+				border-left-color #ccc
+
+.orbit-bullets
+	margin-left auto
+	margin-right auto
+	margin-top gutter * .5
+	overflow hidden
+	text-align center
+	li
+		display inline-block
+		width 1em
+		height 1em
+		background #999999
+		margin-right .5em
+		margin-top 0
+		margin-bottom 0
+		border solid 2px #222222
+		border-radius 1000px
+		&.active
+			background #222222
+		&:last-child
+			margin-right 0
+
+.orbit-caption
+	position absolute
+	width 100%
+	color white
+	bottom 0
+	padding 1em
+	background-color black
+	background-color rgba(black, .6)
+

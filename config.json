@@ -1,0 +1,15 @@
+{
+  "locals": {
+    "url": "http://katzki.de",
+    "description": "Robert Katzki is a web developer and photographer based in Hamburg, Germany.",
+    "author": "Robert Katzki"
+  },
+  "plugins": [
+    "./node_modules/wintersmith-stylus/",
+    "./node_modules/wintersmith-coffee/"
+  ],
+  "require": {
+    "_": "underscore",
+    "truncate": "truncate"
+  }
+}

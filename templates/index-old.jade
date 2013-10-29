@@ -1,0 +1,63 @@
+extends layout
+
+block content
+  article.content.index
+    
+    header
+      h2 Hello there!
+
+    #welcome 
+      | My name is 
+      span.bold Robert Katzki
+      |  and I am a full time 
+      a(href='/journal/', title='Journal') web developer
+      |  and a free time 
+      a(href='/photography/', title='Photography') photographer
+      |  living in Hamburg, Germany.
+
+      img.portrait(src='/images/portrait.png', alt=' ')
+
+    section
+
+      - var post = _.chain(contents.journal._.directories).map(function(item) {
+      -   return item.index;
+      - }).compact().sortBy(function(item) {
+      -   return -item.date;
+      - }).first().value();
+      - var html = post.html;
+      - var begin = html.indexOf('<p>') +3 ;
+      - var end = html.indexOf('</p>');
+      - html = post.html.substring(begin, end);
+
+      article.content
+        header
+          h2
+            a(href=post.url, title=post.title) #{post.title}
+          small(data-date=post.metadata.date) #{post.metadata.date_formatted}
+        
+        section
+          p
+            | !{html}
+            br
+            a(href=post.url) Read more &raquo;
+
+        .clear
+
+
+      - var photo = _.chain(contents.photography._.directories).map(function(item) {
+      -   return item.index;
+      - }).compact().sortBy(function(item) {
+      -   return -item.date;
+      - }).first().value();
+
+      article.photo
+        header
+          h2
+            a(href=photo.url, title=photo.title) #{photo.title}
+          small(data-date=photo.metadata.date) #{photo.metadata.date_formatted}
+
+        figure.photo
+          a.local(href=photo.url, title=photo.title)
+            img(src='#{photo.url}photo.jpg', alt='#{photo.title}')
+
+    .clear

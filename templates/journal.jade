@@ -1,0 +1,33 @@
+extends layout
+
+block title
+  title roka. / #{page.title}
+  meta(property='og:title', content='roka. / #{page.title}')
+
+block content
+  
+  - var posts = _.chain(contents.journal._.directories).map(function(item) {
+  -   return item.index;
+  - }).compact().sortBy(function(item) {
+  -   return -item.date;
+  - }).value();
+
+  each post in posts
+    - var html = post.html;
+    - var begin = html.indexOf('<p>') +3 ;
+    - var end = html.indexOf('</p>');
+    - html = post.html.substring(begin, end);
+
+    article.content
+      header
+        h2
+          a(href=post.url, title=post.title) #{post.title}
+        small(data-date=post.metadata.date) #{post.metadata.date_formatted}
+      
+      section
+        p
+          | !{html}
+          br
+          a(href=post.url) Read more &raquo;
+
+      .clear

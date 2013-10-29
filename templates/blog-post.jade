@@ -1,0 +1,18 @@
+extends layout
+
+block content  
+  .main.col-12-12.center.no-gutter
+    .col-12-12
+      .col-2-12.t_col-3-12.p_col-12-12.b-gutter
+        a(href="/index.html").logo
+          .img
+            img(src="/images/logo_min1000.png")
+
+      .col-10-12.t_col-9-12.p_col-12-12.b-gutter
+        h1.no-t-marg #{ page.title }
+        strong #{ page.author }
+
+    include nav
+
+    .col-12-12.no-gutter.t-gutter
+      != page.html

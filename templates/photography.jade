@@ -1,0 +1,38 @@
+extends layout
+
+block title
+  title roka. / #{page.title}
+  meta(property='og:title', content='roka. / #{page.title}')
+
+append meta
+  - var latest = _.chain(contents.photography._.directories).map(function(item) {
+  -   return item.index;
+  - }).compact().sortBy(function(item) {
+  -   return -item.date;
+  - }).first().value()
+  meta(property='og:image', content='#{locals.url}#{latest.url}photo.jpg')
+
+block content
+  article.content.photography
+    
+    header
+      h2 Photography
+    
+    section
+      - var photos = _.chain(contents.photography._.directories).map(function(item) {
+      -   return item.index;
+      - }).compact().sortBy(function(item) {
+      -   return -item.date;
+      - }).value();
+
+      each photo in photos
+        figure.photo
+          a.local(href=photo.url, title=photo.title)
+            img(src='#{photo.url}thumb.jpg', alt=photo.title)
+            figcaption= photo.title
+
+      .clear
+        
+    section If you're interested in more information or a print, feel free to contact me!
+
+    .clear

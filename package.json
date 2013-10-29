@@ -1,0 +1,17 @@
+{
+  "name": "katzki.de",
+  "version": "2.1.0",
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "wintersmith-coffee": "~0.2.0",
+    "truncate": "~1.0.2"
+  },
+  "devDependencies": {
+    "500px": "*",
+    "request": "*",
+    "moment": "*",
+    "slug": "*",
+    "wintersmith-stylus": "*",
+    "wintersmith-snockets": "*"
+  }
+}

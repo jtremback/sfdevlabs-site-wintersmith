@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .blog-listing.dbl-gutter
+    - var posts = _.chain(contents.blog._.directories).map(function(item) {
+    -   return item.index;
+    - }).compact().sortBy(function(item) {
+    -   return -item.date;
+    - }).value();
+
+    each post in posts
+      - var html = post.html;
+      - var begin = html.indexOf('<p>') +3 ;
+      - var end = html.indexOf('</p>');
+      - html = post.html.substring(begin, end);
+
+      ._story
+        a.no-link-style(href='#{ post.url }')
+          h2._title
+            span #{ post.title }
+          ._details #{ post.author } - #{ post.metadata.date_formatted }
+          blockquote._excerpt !{ html }
