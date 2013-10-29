@@ -5,8 +5,7 @@
     "author": "Robert Katzki"
   },
   "plugins": [
-    "./node_modules/wintersmith-stylus/",
-    "./node_modules/wintersmith-coffee/"
+    "./node_modules/wintersmith-stylus/"
   ],
   "require": {
     "_": "underscore",

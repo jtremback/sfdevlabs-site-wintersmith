@@ -2,8 +2,7 @@
 title: Chronometer
 slug: "chronometer"
 template: project.jade
-category: projects
-order: 2
+order: 3
 ---
 
 Most clocks on smartphones require at least three steps to even set a simple timer. We wanted to change this with a one touch interface.
