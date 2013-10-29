@@ -13,7 +13,7 @@ block content
 
     include nav
 
-    .port-listing
+    .col-12-12.port-listing.dbl-gutter
       - var projects = _.chain(contents.projects._.directories).map(function(item) {
       -   return item.index;
       - }).compact().sortBy(function(item) {

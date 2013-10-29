@@ -1,6 +1,5 @@
 @import "objectgrid"
 @import "orbit"
-@import "highlight-github"
 
 serif-font = "Merriweather", serif 
 sans-font = "Open Sans", sans-serif
@@ -113,11 +112,10 @@ q
 		content: ''
 		content: none
 
-// code, pre
-// 	background-color: #f4f4f4
-// 	font-family: Menlo, 'Panic Sans', monospace
-// 	font-size: 0.875em
-// 	white-space pre-wrap
+code, pre
+	font-family: Menlo, 'Panic Sans', monospace
+	font-size: 0.875em
+	white-space pre-wrap
 
 table
 	border-collapse: collapse
@@ -125,6 +123,9 @@ table
 
 strong
 	font-weight: 700
+
+em 
+	font-style italic
 
 hr
 	margin gutter 0
@@ -174,7 +175,7 @@ a.no-link-style
 
 
 img
-	width: 100%
+	max-width: 100%
 
 .pull-right
 	float right
@@ -231,6 +232,13 @@ img
 	border std-border
 	background offwhite
 	box-sizing content-box
+
+.markdown 
+	img
+		display block
+		margin-left auto
+		margin-right auto
+
 
 #bgfx
 	offwhite-grad()
@@ -330,7 +338,7 @@ form
 	transition all .6s ease
 	absexpand()
 	img 
-		width 100%
+		max-width 100%
 	&.active
 		opacity 1
 
@@ -388,7 +396,7 @@ form
 
 
 
-.tag
+.skill-tag
 	float left
 	white-space pre-line
 	background offblack
@@ -465,7 +473,7 @@ ul.nolist
 		left @top
 		right @top
 
-.title
+.page-title
 	line-height .9
 	font-size 4.5em
 	margin-bottom gutter
@@ -497,6 +505,7 @@ ul.nolist
 
 //BLOG LISTING
 .blog-listing
+	padding-top gutter * 2
 	._story
 		margin-bottom gutter * 2
 		._title
@@ -614,12 +623,14 @@ ul.nolist
 
 //PORTFOLIO LISTING
 .port-listing
+	margin-top gutter * 2
 	z-index 1
 	a 
 		display block
 		position relative
 		color offblack
-		img 
+		img
+			width: 100%
 			display block
 		._title
 			position absolute
@@ -631,3 +642,4 @@ ul.nolist
 	hr:last-child
 		display none
 
+@import "highlight-github"

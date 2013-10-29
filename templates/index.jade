@@ -17,31 +17,36 @@ block content
         .t-gutter
           .button.large.pull-right(data-modal-id="modal-1") Get Started
 
-
-    //- != partial('navbar')
-
+    include nav
 
     .col-12-12.skillrow.t-gutter.dbl-gutter.text-center
-      .tag HTML/CSS
-      .tag UI/UX Design
-      .tag Javascript
-      .tag Node.js 
-      .tag Express
-      .tag Backbone
-      .tag Responsive Design
-      .tag jQuery
-      .tag API's
+      .skill-tag HTML/CSS
+      .skill-tag UI/UX Design
+      .skill-tag Javascript
+      .skill-tag Node.js 
+      .skill-tag Express
+      .skill-tag Backbone
+      .skill-tag Responsive Design
+      .skill-tag jQuery
+      .skill-tag API's
 
     hr.col-12-12
 
     //- padding-top set aspect ratio
     #slideshow(style="padding-top: 63%;")
-      //- .counterbox
-      //-   each page in getCollection('portfolio').toJSON()
-      //-     .counter
-      //- each page in getCollection('portfolio').toJSON()
-      //-   a.slide(href="/portfolio.html")
-      //-     img(src='/images/#{ page.slug }_slide2.png')
+      - var projects = _.chain(contents.projects._.directories).map(function(item) {
+      -   return item.index;
+      - }).compact().sortBy(function(item) {
+      -   return item.metadata.order;
+      - }).value();
+
+      .counterbox
+        each project in projects
+          .counter
+
+      each project in projects
+        a.slide(href="/portfolio.html")
+          img(src='#{project.url}slide.png')
       
       .slide-left
       .slide-right
@@ -68,9 +73,7 @@ block content
 
     .col-12-12
       .col-6-12.t_col-12-12
-        //- != partial('contact.html.jade')
+        include contact
       .col-6-12.t_hide
         img.semi-transp(src='images/responsive.png')
         div.text-center We love all devices!
-
-    //- .largea

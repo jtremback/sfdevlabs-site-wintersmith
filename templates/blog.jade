@@ -1,22 +1,35 @@
 extends layout
 
 block content
-  .blog-listing.dbl-gutter
-    - var posts = _.chain(contents.blog._.directories).map(function(item) {
-    -   return item.index;
-    - }).compact().sortBy(function(item) {
-    -   return -item.date;
-    - }).value();
 
-    each post in posts
-      - var html = post.html;
-      - var begin = html.indexOf('<p>') +3 ;
-      - var end = html.indexOf('</p>');
-      - html = post.html.substring(begin, end);
+  .main.col-12-12.center.no-gutter
+    .col-12-12
+      .col-2-12.t_col-3-12.p_col-12-12.b-gutter
+        a(href="/index.html").logo
+          .img
+            img(src="/images/logo_min1000.png")
 
-      ._story
-        a.no-link-style(href='#{ post.url }')
-          h2._title
-            span #{ post.title }
-          ._details #{ post.author } - #{ post.metadata.date_formatted }
-          blockquote._excerpt !{ html }
+      .col-10-12.t_col-9-12.p_col-12-12.b-gutter
+        h1.no-t-marg Blog
+
+    include nav
+
+    .col-12-12.blog-listing.dbl-gutter
+      - var posts = _.chain(contents.blog._.directories).map(function(item) {
+      -   return item.index;
+      - }).compact().sortBy(function(item) {
+      -   return -item.date;
+      - }).value();
+
+      each post in posts
+        - var html = post.html;
+        - var begin = html.indexOf('<p>') +3 ;
+        - var end = html.indexOf('</p>');
+        - html = post.html.substring(begin, end);
+
+        ._story
+          a.no-link-style(href='#{ post.url }')
+            h2._title
+              span #{ post.title }
+            ._details #{ post.metadata.author } - #{ post.metadata.date_formatted }
+            blockquote._excerpt !{ html }

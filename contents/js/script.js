@@ -188,4 +188,5 @@ var init = function() {
     $('#thanks-modal').addClass('md-show');
   }
   zoomNpan($('.zoom'));
+  hljs.initHighlighting();
 }();

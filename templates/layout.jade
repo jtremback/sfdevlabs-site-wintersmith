@@ -18,19 +18,7 @@ html
     
     #modal-1.md-modal.md-effect-15
       .md-content
-        form#contact-form(method="post", enctype="multipart/form-data", action="http://sfdevlabs.com:8080")
-
-          input._honey(type='text', value="", data-val="honey")
-
-          input(type='text', name="name", value="", placeholder='Your Name', data-val="required")
-
-          input.val-email(type='email', name="email", value="", placeholder='Email', data-val="required")
-
-          textarea(type='text', rows="5", name="body", placeholder='How can we help you?', data-val="required")
-
-          div(data-val='notice')
-
-          .button.pull-right.md-close(data-val="submit") Contact us
+        include contact
 
     #thanks-modal.md-modal.md-effect-15
       .md-content
