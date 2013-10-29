@@ -17,7 +17,7 @@ block content
       - var projects = _.chain(contents.projects._.directories).map(function(item) {
       -   return item.index;
       - }).compact().sortBy(function(item) {
-      -   return -item.date;
+      -   return item.metadata.order;
       - }).value();
 
       each project in projects
@@ -25,4 +25,4 @@ block content
           ._title.text-center
             h2.p_hide._inner #{ project.title }
             h4.p_show._inner #{ project.title }
-          img(src='images/#{ project.url }_banner.png')
+          img(src='#{project.url}banner.png')
