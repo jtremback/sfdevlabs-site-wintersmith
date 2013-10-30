@@ -1,14 +1,13 @@
 {
   "locals": {
-    "url": "http://katzki.de",
-    "description": "Robert Katzki is a web developer and photographer based in Hamburg, Germany.",
-    "author": "Robert Katzki"
+    "url": "http://sfdevlabs.com",
+    "description": "SF Dev Labs is a full-service node.js consultancy located in San Francisco, California",
+    "author": "Jehan Tremback"
   },
   "plugins": [
     "./node_modules/wintersmith-stylus/"
   ],
   "require": {
-    "_": "underscore",
-    "truncate": "truncate"
+    "_": "underscore"
   }
 }

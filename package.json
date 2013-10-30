@@ -1,14 +1,9 @@
 {
-  "name": "katzki.de",
-  "version": "2.1.0",
+  "name": "sfdevlabs.com",
   "dependencies": {
     "underscore": "~1.5.2"
   },
   "devDependencies": {
-    "request": "*",
-    "moment": "*",
-    "slug": "*",
-    "wintersmith-stylus": "*",
-    "wintersmith-snockets": "*"
+    "wintersmith-stylus": "*"
   }
 }
