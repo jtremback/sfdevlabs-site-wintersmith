@@ -53,6 +53,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 	display: block
 
 //PAGE
+
 body
 	font-family sans-font
 	text-rendering: optimizeLegibility
@@ -272,7 +273,7 @@ input, textarea
 form 
 	._wrong
 		border-color red
-	._honey
+	._hidden
 		width 0
 		height 0
 		font-size .01px
@@ -358,6 +359,8 @@ form
 	border-right-color offblack
 	&:hover
 		border-right-color black
+	@media under-page
+		display none
 
 .slide-right
 	top 50%
@@ -367,6 +370,8 @@ form
 	border-left-color offblack
 	&:hover
 		border-left-color black
+	@media under-page
+		display none
 
 .counterbox
 	position absolute 
