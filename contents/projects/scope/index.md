@@ -1,8 +1,7 @@
 ---
 title: Scope
-slug: "scope"
 template: project.jade
-order: 2
+order: 1
 ---
 
 Scope is an app designed to help people get the most out of conferences and other events. It allows users to view the event program on their phones and select the talks they are interested in. I focused on minimalism in this design.

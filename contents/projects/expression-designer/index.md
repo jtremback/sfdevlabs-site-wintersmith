@@ -1,6 +1,5 @@
 ---
 title: Expression Designer
-slug: "expression-designer"
 template: project.jade
 order: 4
 ---
