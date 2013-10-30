@@ -32,26 +32,27 @@ block content
 
     hr.col-12-12
 
-    //- padding-top set aspect ratio
-    #slideshow(style="padding-top: 63%;")
-      - var projects = _.chain(contents.projects._.directories).map(function(item) {
-      -   return item.index;
-      - }).compact().sortBy(function(item) {
-      -   return item.metadata.order;
-      - }).value();
+    .col-12-12.dbl-gutter
+      //- padding-top set aspect ratio
+      #slideshow(style="padding-top: 63%;")
+        - var projects = _.chain(contents.projects._.directories).map(function(item) {
+        -   return item.index;
+        - }).compact().sortBy(function(item) {
+        -   return -item.metadata.order;
+        - }).value();
 
-      .counterbox
+        .counterbox
+          each project in projects
+            .counter
+
         each project in projects
-          .counter
+          a.slide(href="/projects/")
+            img(src='#{project.url}slide.png')
+        
+        .slide-left
+        .slide-right
 
-      each project in projects
-        a.slide(href="/portfolio/")
-          img(src='#{project.url}slide.png')
-      
-      .slide-left
-      .slide-right
-
-    .gutter-space.p_hide
+      .gutter-space.p_hide
 
     .col-12-12.p_hide
       .profile.col-4-12

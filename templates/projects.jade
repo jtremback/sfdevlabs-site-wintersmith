@@ -17,7 +17,7 @@ block content
       - var projects = _.chain(contents.projects._.directories).map(function(item) {
       -   return item.index;
       - }).compact().sortBy(function(item) {
-      -   return item.metadata.order;
+      -   return -item.metadata.order;
       - }).value();
 
       each project in projects

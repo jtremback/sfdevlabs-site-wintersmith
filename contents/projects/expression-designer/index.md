@@ -1,7 +1,7 @@
 ---
 title: Expression Designer
 template: project.jade
-order: 4
+order: 3
 ---
 
 BioFab is a project of the Lawrence Berkeley National Laboratory, aiming to be the “world’s first biological design-build facility”.
