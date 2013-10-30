@@ -51,17 +51,21 @@ $('.md-content').on('click', function(e){
 
 //FORM SCRIPTS
 function validateEmail(email) {
-    var regex = /@/;
+    var regex = /@.*\./;
     return regex.test(email);
 }
 
 function validateForm(form) {
-  var honeypot = form.find('*[data-val="honey"]'),
-  requireds = form.find('*[data-val="required"]'),
-  notice = form.find('*[data-val="notice"]');
+  var honeypot = form.find('*[data-val="honey"]')
+    , requireds = form.find('*[data-val="required"]')
+    , notice = form.find('*[data-val="notice"]')
+  ;
 
   //Invalidate immediately if there are flies in the honey
   var check = !honeypot.val().length;
+
+  //Fill in redirect url
+  $('*[data-val="redirect_url"]').val(window.location + '?=thanks');
 
   requireds.each(function(){
     $(this).removeClass('_wrong');
@@ -183,6 +187,7 @@ $(function() {
 
 //INITIALIZE
 var init = function() {
+
   $('#contact-form').attr('action', window.location.pathname + '?=thanks');
   if (window.location.search.match(/\?=thanks/)) {
     $('#thanks-modal').addClass('md-show');
