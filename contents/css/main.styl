@@ -1,5 +1,6 @@
-@import "objectgrid"
-@import "orbit"
+@import "_objectgrid"
+@import "_orbit"
+@import "_vendor-prefixes"
 
 serif-font = "Merriweather", serif 
 sans-font = "Open Sans", sans-serif
@@ -223,6 +224,11 @@ img
 	// 	background offblack
 	// 	box-shadow -20px 0 0 offblack
 	// 	box-shadow 20px 0 0 offblack
+
+
+.orbit-bullets
+	margin-top gutter * 0.5
+
 
 //MAIN CONTAINER
 .main
@@ -561,7 +567,7 @@ ul.nolist
 	position fixed
 	padding-top 10%
 	z-index 2000
-	visibility hidden
+	display none
 	backface-visibility hidden
 	// transform translateX(-50%) translateY(-50%)
 
@@ -578,7 +584,7 @@ ul.nolist
 		border std-border
 
 .md-show
-	visibility visible
+	display block
 	& ~ .md-overlay
 		opacity 1
 		visibility visible
@@ -595,35 +601,35 @@ ul.nolist
 	background rgba(offwhite, .9)
 	transition all 0.5s
 
-.md-effect-15
-	&.md-modal
-		-webkit-perspective 1300px
-		-moz-perspective 1300px
-		perspective 1300px
-	.md-content
-		-webkit-transform-style preserve-3d
-		-moz-transform-style preserve-3d
-		transform-style preserve-3d
-		-webkit-transform translateZ(100px) translateX(-30%) rotateY(90deg)
-		-moz-transform translateZ(100px) translateX(-30%) rotateY(90deg)
-		-ms-transform translateZ(100px) translateX(-30%) rotateY(90deg)
-		transform translateZ(100px) translateX(-30%) rotateY(90deg)
-		-webkit-transform-origin 0 100%
-		-moz-transform-origin 0 100%
-		transform-origin 0 100%
-		opacity 0
-		-webkit-transition all 0.2s
-		-moz-transition all 0.2s
-		transition all 0.2s
+// .md-effect-15
+// 	&.md-modal
+// 		-webkit-perspective 1300px
+// 		-moz-perspective 1300px
+// 		perspective 1300px
+// 	.md-content
+// 		-webkit-transform-style preserve-3d
+// 		-moz-transform-style preserve-3d
+// 		transform-style preserve-3d
+// 		-webkit-transform translateZ(100px) translateX(-30%) rotateY(90deg)
+// 		-moz-transform translateZ(100px) translateX(-30%) rotateY(90deg)
+// 		-ms-transform translateZ(100px) translateX(-30%) rotateY(90deg)
+// 		transform translateZ(100px) translateX(-30%) rotateY(90deg)
+// 		-webkit-transform-origin 0 100%
+// 		-moz-transform-origin 0 100%
+// 		transform-origin 0 100%
+// 		opacity 0
+// 		-webkit-transition all 0.2s
+// 		-moz-transition all 0.2s
+// 		transition all 0.2s
 
-.md-show
-	&.md-effect-15
-		.md-content
-			-webkit-transform translateZ(0px) translateX(0%) rotateY(0deg)
-			-moz-transform translateZ(0px) translateX(0%) rotateY(0deg)
-			-ms-transform translateZ(0px) translateX(0%) rotateY(0deg)
-			transform translateZ(0px) translateX(0%) rotateY(0deg)
-			opacity 1
+// .md-show
+// 	&.md-effect-15
+// 		.md-content
+// 			-webkit-transform translateZ(0px) translateX(0%) rotateY(0deg)
+// 			-moz-transform translateZ(0px) translateX(0%) rotateY(0deg)
+// 			-ms-transform translateZ(0px) translateX(0%) rotateY(0deg)
+// 			transform translateZ(0px) translateX(0%) rotateY(0deg)
+// 			opacity 1
 
 
 //PORTFOLIO LISTING
@@ -647,4 +653,4 @@ ul.nolist
 	hr:last-child
 		display none
 
-@import "highlight-github"
+@import "_highlight-github"
